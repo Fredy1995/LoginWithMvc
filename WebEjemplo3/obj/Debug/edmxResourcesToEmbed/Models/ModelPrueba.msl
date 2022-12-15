@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="dbPruebasModelStoreContainer" CdmEntityContainer="dbPruebasEntities">
+    <EntitySetMapping Name="Login">
+      <EntityTypeMapping TypeName="dbPruebasModel.Login">
+        <MappingFragment StoreEntitySet="Login">
+          <ScalarProperty Name="idUser" ColumnName="idUser" />
+          <ScalarProperty Name="nombre" ColumnName="nombre" />
+          <ScalarProperty Name="aPaterno" ColumnName="aPaterno" />
+          <ScalarProperty Name="aMaterno" ColumnName="aMaterno" />
+          <ScalarProperty Name="correo" ColumnName="correo" />
+          <ScalarProperty Name="contraseña" ColumnName="contraseña" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

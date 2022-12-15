@@ -1,0 +1,64 @@
+﻿
+@model IEnumerable<WebEjemplo3.Models.Login>
+@using GridMvc.Html
+@{
+    ViewBag.Title = "CRUD";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<div class="container mt-5">
+    <div class="mt-4 p-5 bg-success text-white rounded text-center">
+        <h4>CRUD BÁSICO (CREAR, LEER, ACTUALIZAR, ELIMINAR) EN ASP.NET MVC USANDO C# Y ENTITY FRAMEWORK</h4>
+    </div>
+    <br />
+    <form method="post" action="CRUD">
+        <div class="card">
+            <div class="card-body">
+                <div class="row">
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Ingresa nombre" name="nombre">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Ingresa Apellido Paterno" name="aPaterno">
+                    </div>
+                    <div class="col">
+                        <input type="text" class="form-control" placeholder="Ingresa Apellido Materno" name="aMaterno">
+                    </div>
+                    <div class="col">
+                        <input type="email" class="form-control" placeholder="Ingresa Correo" name="correo">
+                    </div>
+                </div>
+                <br />
+
+                <input type="submit" name="btnAgregar" class="btn btn-primary" value="Agregar" />
+            </div>
+        </div>
+        <br />
+        <div class="card">
+            <div class="card-body">
+                <input type="number" class="form-control" placeholder="Id usuario" name="idUsuario"><br />
+                <input type="submit" name="btnActualizar" class="btn btn-secondary" value="Actualizar" />
+                <input type="submit" name="btnEliminar" class="btn btn-danger" value="Eliminar" />
+            </div>
+        </div>
+
+       
+
+       
+    </form>
+   
+    <div class="table-responsive">
+        @Html.Grid(Model).Columns(columns =>
+  {
+      columns.Add(c => c.idUser).Titled("ID Usuario");
+      columns.Add(c => c.nombre).Titled("Nombre").Filterable(true);
+      columns.Add(c => c.aPaterno).Titled("Apellido Paterno");
+      columns.Add(c => c.aMaterno).Titled("Apellido Materno");
+      columns.Add(c => c.correo).Titled("Correo");
+
+  }).WithPaging(10).Sortable(true)
+
+    </div>
+
+</div>
+
+

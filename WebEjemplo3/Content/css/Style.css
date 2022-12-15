@@ -1,0 +1,8 @@
+﻿body {
+}
+
+.borderlogin {
+    border-style: dashed;
+    border-width: 1px 1px;
+    border-color: gray;
+}

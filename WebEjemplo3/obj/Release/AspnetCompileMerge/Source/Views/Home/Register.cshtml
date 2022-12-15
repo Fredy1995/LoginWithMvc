@@ -1,0 +1,67 @@
+﻿@model WebEjemplo3.Models.User
+@{
+    ViewBag.Title = "Register";
+    Layout = null;
+}
+<link href="~/Content/bootstrap.css" rel="stylesheet" />
+<script src="~/Scripts/bootstrap.bundle.js"></script>
+<div class="container">
+    <div class="row justify-content-md-center">
+        <div class="col-md-5">
+            @using (Html.BeginForm("Register", "Home", FormMethod.Post))
+            {
+                //@Html.ValidationSummary()
+                @Html.AntiForgeryToken()
+                <br />
+                <div class="card">
+                    <div class="card-header">
+                        <div class="card-title text-center">
+                            <b>REGISTRAR USUARIO</b>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.nombre)
+                            @Html.TextBoxFor(m => m.nombre, "", new { @class = "form-control", @placeholder = "First Name" })
+                        
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.aPaterno)
+                            @Html.TextBoxFor(m => m.aPaterno, "", new { @class = "form-control", @placeholder = "Last Name" })
+                            
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.aMaterno)
+                            @Html.TextBoxFor(m => m.aMaterno, "", new { @class = "form-control", @placeholder = "Last Name" })
+                        
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.correo)
+                            @Html.TextBoxFor(m => m.correo, "", new { @class = "form-control", @placeholder = "Email" })
+                            
+                            @if (ViewBag.error != null)
+                            {
+                                <span class="badge badge-danger">@ViewBag.error</span>
+                            }
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.contraseña)
+                            @Html.PasswordFor(m => m.contraseña, new { @class = "form-control", @placeholder = "Password" })
+                            
+                        </div>
+                        <div class="form-group">
+                            @Html.LabelFor(m => m.ConfirmarContraseña)
+                            @Html.PasswordFor(m => m.ConfirmarContraseña, new { @class = "form-control", @placeholder = "Confim Password" })
+                         
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" name="submit" class="btn btn-danger" value="Register" />
+                        </div>
+                    </div>
+                </div>
+
+            }
+        </div>
+    </div>
+</div>
+
